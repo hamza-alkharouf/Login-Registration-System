@@ -31,7 +31,12 @@ if($count == 1){
     if (password_verify($password ,$rowPassword )){
         session_start();
         $_SESSION["loggedUser"] = $email;
-        header('Location: profile.php');
+        if($rowEmail == 'admin@gmail.com'){
+            header('Location: adminProfile.php');
+        }else{
+            header('Location: userProfile.php');
+
+        }
     }else{
         header('Location: login.php');
         echo "invalid email and password";
