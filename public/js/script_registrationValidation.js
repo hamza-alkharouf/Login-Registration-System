@@ -38,14 +38,8 @@ function validation(){
 	}
 	
 	var email = document.regForm.email.value;
-	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	if(email==""){
 		formLabels[2].innerHTML="Email: [Required]";
-		formLabels[2].style="color: red";
-		valid = false;
-	}
-	else if(!re.test(email)){
-		formLabels[2].innerHTML="Email: [Incorrect Email]";
 		formLabels[2].style="color: red";
 		valid = false;
 	}

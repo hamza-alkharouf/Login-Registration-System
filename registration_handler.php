@@ -1,48 +1,51 @@
 <?php 
 
 
-$firstName='';
+$firstName = '';
 if(isset($_POST['firstName'])){
-    $firstName=$_POST["firstName"];
+    $firstName = $_POST["firstName"];
 
 }
-$lastName='';
+$lastName = '';
 if(isset($_POST['lastName'])){
-    $lastName=$_POST["lastName"];
-
+    $lastName = $_POST["lastName"];
+ 
 }
-$email='';
+$email = '';
 if(isset($_POST['email'])){
-    $email=$_POST["email"];
+    $email = $_POST["email"];
 
 }
-$mobile='';
+$mobile = '';
 if(isset($_POST['mobile'])){
-    $mobile=$_POST["mobile"];
+    $mobile = $_POST["mobile"];
 
 }
-$age='';
+$age = '';
 if(isset($_POST['age'])){
-    $age=$_POST["age"];
+    $age = $_POST["age"];
 
 }
-$password='';
+$password = '';
 if(isset($_POST['password'])){
-    $password=$_POST["password"];
+    $password = $_POST["password"];
+    $passwordHashed = password_hash($password , PASSWORD_DEFAULT);
 
 }
 
 
 include "./config.php";
 
-$inserUser = "INSERT INTO users(firstName, lastName, email, mobile, age, password) values('$firstName', '$lastName', '$email', '$mobile', '$age', '$password' ) ";
-$res = mysqli_query($con, $inserUser);
+$inserUser = "INSERT INTO users(firstName, lastName, email, mobile, age, password) values( ? , ? , ? , ? , ? , ? ) ";
+$stmt = mysqli_prepare($con, $inserUser);
+mysqli_stmt_bind_param($stmt ,"ssssss",$firstName,$lastName,$email,$mobile,$age ,$passwordHashed);
+$result = mysqli_stmt_execute($stmt);
 
 if(isset($_POST['submit'])){
-    if ( $res ){
+    if ( $result ){
         header('Location: login.php');
     }else{
-        echo "Error:".mysqli_error($con);
+        echo "Error:".mysqli_stmt_error($stmt);
     
     }
 }
