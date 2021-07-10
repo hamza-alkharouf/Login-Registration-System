@@ -51,7 +51,7 @@
         <input type="reset" value="Clear" class="btn btn-primary btn-block" onclick="clear2();"/>
 
     </div> <!-- form-group// -->      
-    <p class="text-center">Don't Have account? <a href="registration.php">sing on</a> </p>                                                                 
+    <p class="text-center">Don't Have account? <a href="registration.php">Sign In</a> </p>                                                                 
 </form>
 </article>
 </div>
