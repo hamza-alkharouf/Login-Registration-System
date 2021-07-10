@@ -6,7 +6,7 @@
 
 ## How to use
 1. create database projects,then tabel users.
-2. make 6 col
+2. make 7 col
   - firstName -> varchar(10)
   - lastName -> varchar(10)
   - password -> varchar(64)	
