@@ -1,6 +1,7 @@
 # Login-Registration-System
 * Login/Registration System using PHP/MySQL.
 * SQL Injection and MySQLi Prepared Statements.
+* Password Hashing/Encryption and Dehashing/Decryption
 
 
 ## How to use
